@@ -40,6 +40,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/api/auth/**").permitAll()
                         .requestMatchers(HttpMethod.GET, "/api/spaces/**").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/api/bookings/spaces/**").permitAll()
                         .requestMatchers(HttpMethod.POST, "/api/spaces/**").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.PUT, "/api/spaces/**").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.DELETE, "/api/spaces/**").hasRole("ADMIN")

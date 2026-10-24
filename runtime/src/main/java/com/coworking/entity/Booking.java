@@ -1,4 +1,3 @@
-
 package com.coworking.entity;
 
 import jakarta.persistence.*;
@@ -29,6 +28,10 @@ public class Booking {
     @JoinColumn(name = "space_id", nullable = false)
     private Space space;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "desk_id")
+    private Desk desk;
+
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private BookingType bookingType;
@@ -46,12 +49,23 @@ public class Booking {
     @Column(nullable = false)
     private BookingStatus status = BookingStatus.CONFIRMED;
 
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private CheckInStatus checkInStatus = CheckInStatus.NOT_CHECKED_IN;
+
+    private LocalDateTime checkedInAt;
+
+    private LocalDateTime checkedOutAt;
+
     @Column(nullable = false, updatable = false)
     private LocalDateTime createdAt;
 
     @PrePersist
     public void onCreate() {
         createdAt = LocalDateTime.now();
+        if (checkInStatus == null) {
+            checkInStatus = CheckInStatus.NOT_CHECKED_IN;
+        }
     }
 
     public enum BookingType {
@@ -60,5 +74,9 @@ public class Booking {
 
     public enum BookingStatus {
         CONFIRMED, CANCELLED, COMPLETED
+    }
+
+    public enum CheckInStatus {
+        NOT_CHECKED_IN, CHECKED_IN, CHECKED_OUT
     }
 }

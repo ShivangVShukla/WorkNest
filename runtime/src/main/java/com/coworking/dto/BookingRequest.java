@@ -1,9 +1,8 @@
-
 package com.coworking.dto;
 
 import com.coworking.entity.Booking;
-import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.FutureOrPresent;
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -15,6 +14,8 @@ public class BookingRequest {
 
     @NotNull
     private Long spaceId;
+
+    private Long deskId; // Optional specific desk or cabin selection
 
     @NotNull
     private Booking.BookingType bookingType;

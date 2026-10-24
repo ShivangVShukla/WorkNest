@@ -1,4 +1,3 @@
-
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap");
 
 :root {
@@ -134,7 +133,7 @@ button {
   color: #73896b;
 }
 
-.hero-content > p {
+.hero-content>p {
   max-width: 435px;
   margin: 0 0 29px;
   color: #74766d;
@@ -177,7 +176,7 @@ button {
   min-width: 0;
 }
 
-.hero-visual > img {
+.hero-visual>img {
   display: block;
   width: 100%;
   height: 405px;
@@ -412,7 +411,7 @@ button {
   border-radius: 8px;
 }
 
-.empty-state > span {
+.empty-state>span {
   font-size: 28px;
   color: #71836a;
 }
@@ -447,7 +446,7 @@ button {
   border-top: 1px solid #d9dbd1;
 }
 
-.step > span {
+.step>span {
   color: #71876a;
   font-family: "Manrope", sans-serif;
   font-size: 13px;
@@ -496,7 +495,7 @@ button {
     gap: 35px;
   }
 
-  .hero-visual > img {
+  .hero-visual>img {
     height: 350px;
   }
 
@@ -540,7 +539,7 @@ button {
     letter-spacing: -2.5px;
   }
 
-  .hero-visual > img {
+  .hero-visual>img {
     height: 290px;
   }
 
@@ -587,8 +586,8 @@ button {
   justify-content: space-between;
   overflow: hidden;
   background:
-          radial-gradient(circle at 80% 20%, rgba(203, 220, 187, 0.35), transparent 35%),
-          linear-gradient(135deg, #1d392b, #315c40 65%, #52765b);
+    radial-gradient(circle at 80% 20%, rgba(203, 220, 187, 0.35), transparent 35%),
+    linear-gradient(135deg, #1d392b, #315c40 65%, #52765b);
   color: #fffefa;
 }
 
@@ -621,7 +620,7 @@ button {
   margin-top: 22px;
 }
 
-.workspace-prices > div {
+.workspace-prices>div {
   display: flex;
   flex-direction: column;
   gap: 5px;
@@ -659,7 +658,7 @@ button {
   background: #f4f5ee;
 }
 
-.workspace-summary > .field-label {
+.workspace-summary>.field-label {
   margin-bottom: 15px;
 }
 
@@ -673,11 +672,11 @@ button {
   font-size: 13px;
 }
 
-.summary-row > span {
+.summary-row>span {
   color: #737c72;
 }
 
-.summary-row > strong {
+.summary-row>strong {
   text-align: right;
   overflow-wrap: anywhere;
 }
@@ -688,7 +687,7 @@ button {
   border-bottom: none;
 }
 
-.summary-total > strong {
+.summary-total>strong {
   color: #315c40;
   font-size: 18px;
 }
@@ -713,7 +712,7 @@ button {
   color: #243b2e;
 }
 
-.booking-success > strong {
+.booking-success>strong {
   font-size: 18px;
 }
 
@@ -739,7 +738,7 @@ button {
     gap: 10px;
   }
 
-  .workspace-prices > div {
+  .workspace-prices>div {
     padding: 12px;
   }
 
@@ -833,7 +832,7 @@ button {
   border-bottom: 1px solid #e3e4da;
 }
 
-.my-booking-details > div {
+.my-booking-details>div {
   display: flex;
   flex-direction: column;
   gap: 9px;
@@ -1130,5 +1129,749 @@ button {
   .auth-card {
     margin: 35px 0;
     padding: 27px 22px;
+  }
+}
+
+/* =========================================================
+   SEAT MAP & REAL-TIME INTERACTIVE FLOOR PLAN
+   ========================================================= */
+.seat-map-container {
+  margin: 22px 0;
+  padding: 20px;
+  background: #f4f5ee;
+  border: 1px solid #e1e3d7;
+  border-radius: 12px;
+}
+
+.seat-map-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px dashed #d7dacb;
+}
+
+.seat-map-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13.5px;
+  color: #2e3e32;
+}
+
+.live-pulse {
+  width: 8px;
+  height: 8px;
+  background: #2e7d32;
+  border-radius: 50%;
+  display: inline-block;
+  box-shadow: 0 0 0 0 rgba(46, 125, 50, 0.7);
+  animation: pulseGreen 1.6s infinite;
+}
+
+@keyframes pulseGreen {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(46, 125, 50, 0.7);
+  }
+
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 7px rgba(46, 125, 50, 0);
+  }
+
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(46, 125, 50, 0);
+  }
+}
+
+.seat-map-legend {
+  display: flex;
+  gap: 12px;
+  font-size: 11px;
+  color: #656c62;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+}
+
+.legend-dot.available {
+  background: #e8f5e9;
+  border: 1px solid #81c784;
+}
+
+.legend-dot.cabin-available {
+  background: #ede7f6;
+  border: 1px solid #b39ddb;
+}
+
+.legend-dot.selected {
+  background: #2e7d32;
+}
+
+.legend-dot.booked {
+  background: #ffebee;
+  border: 1px solid #ef9a9a;
+}
+
+.seat-map-stage {
+  background: #ffffff;
+  padding: 16px;
+  border-radius: 9px;
+  border: 1px solid #e2e4d9;
+}
+
+.floor-entrance {
+  text-align: center;
+  font-size: 9.5px;
+  letter-spacing: 1.5px;
+  font-weight: 700;
+  color: #93978b;
+  margin-bottom: 14px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #f0f1ea;
+}
+
+.seat-grid-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.seat-row-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.row-indicator {
+  font-size: 10px;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #7b8377;
+  letter-spacing: 0.8px;
+}
+
+.seat-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.seat-slot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 6px;
+  border-radius: 7px;
+  background: #f8faf8;
+  border: 1.5px solid #c8d8c9;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.seat-slot:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.06);
+}
+
+.seat-slot.cabin-slot {
+  border-style: solid;
+  border-width: 2px;
+  background: #faf7ff;
+  border-color: #d1c4e9;
+}
+
+.seat-slot.is-available:hover {
+  background: #e8f5e9;
+  border-color: #4caf50;
+}
+
+.seat-slot.is-cabin-available:hover {
+  background: #ede7f6;
+  border-color: #7e57c2;
+}
+
+.seat-slot.is-selected {
+  background: #2e7d32 !important;
+  border-color: #1b5e20 !important;
+  color: #ffffff !important;
+  transform: scale(1.03);
+  box-shadow: 0 4px 12px rgba(46, 125, 50, 0.3);
+}
+
+.seat-slot.is-selected .seat-code,
+.seat-slot.is-selected .seat-badge {
+  color: #ffffff !important;
+}
+
+.seat-slot.is-booked {
+  background: #fbf1f1;
+  border-color: #f0c4c4;
+  color: #aa5050;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.seat-slot.is-booked:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.seat-icon {
+  font-size: 16px;
+  margin-bottom: 2px;
+}
+
+.seat-code {
+  font-size: 11px;
+  font-weight: 700;
+  color: #28372b;
+}
+
+.seat-badge {
+  font-size: 8.5px;
+  color: #6d776a;
+  margin-top: 2px;
+}
+
+.seat-status-tag {
+  font-size: 8px;
+  background: #ffebee;
+  color: #c62828;
+  padding: 1px 4px;
+  border-radius: 3px;
+  margin-top: 3px;
+  font-weight: 700;
+}
+
+.seat-hover-panel {
+  margin-top: 12px;
+  padding: 8px 12px;
+  background: #ffffff;
+  border-radius: 6px;
+  border: 1px solid #dcdfd2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+}
+
+.hover-info {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  color: #3b4239;
+}
+
+.badge-free {
+  background: #e8f5e9;
+  color: #2e7d32;
+  font-weight: 600;
+  padding: 2px 7px;
+  border-radius: 4px;
+}
+
+.badge-busy {
+  background: #ffebee;
+  color: #c62828;
+  font-weight: 600;
+  padding: 2px 7px;
+  border-radius: 4px;
+}
+
+/* =========================================================
+   CHECK-IN & CHECK-OUT TRACKING STYLES
+   ========================================================= */
+.booking-status-badges {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.checkin-badge {
+  font-size: 10.5px;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-weight: 700;
+}
+
+.checkin-badge.not_checked_in {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.checkin-badge.checked_in {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.checkin-badge.checked_out {
+  background: #e5e7eb;
+  color: #374151;
+}
+
+.timestamp-tracker {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 11px;
+  color: #555b51;
+}
+
+.checkin-action-btn {
+  padding: 8px 14px;
+  border-radius: 6px;
+  border: none;
+  font-weight: 700;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.checkin-action-btn.check-in {
+  background: #2e7d32;
+  color: white;
+}
+
+.checkin-action-btn.check-in:hover {
+  background: #1b5e20;
+}
+
+.checkin-action-btn.check-out {
+  background: #d97706;
+  color: white;
+}
+
+.checkin-action-btn.check-out:hover {
+  background: #b45309;
+}
+
+.invoice-download-btn,
+.invoice-view-btn {
+  padding: 8px 13px;
+  background: #f0f2ea;
+  border: 1px solid #d2d6c7;
+  border-radius: 6px;
+  color: #27392a;
+  font-size: 11.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.invoice-download-btn:hover,
+.invoice-view-btn:hover {
+  background: #e3e7db;
+}
+
+.booking-actions-left {
+  display: flex;
+  gap: 8px;
+}
+
+.booking-actions-right {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.success-action-row {
+  display: flex;
+  gap: 12px;
+  margin-top: 14px;
+  flex-wrap: wrap;
+}
+
+.card-features-tag {
+  display: flex;
+  gap: 12px;
+  margin: 10px 0 14px;
+  font-size: 11px;
+  color: #516453;
+  font-weight: 600;
+}
+
+/* =========================================================
+   INVOICE MODAL & PRINT STYLES
+   ========================================================= */
+.invoice-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(18, 25, 20, 0.65);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.invoice-modal-card {
+  background: #ffffff;
+  border-radius: 12px;
+  max-width: 720px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.25);
+  position: relative;
+}
+
+.invoice-modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 14px 20px;
+  background: #fafaf7;
+  border-bottom: 1px solid #eceee6;
+}
+
+.invoice-print-btn {
+  background: #315c40;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 7px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.invoice-close-btn {
+  background: none;
+  border: 1px solid #d5d8cc;
+  border-radius: 6px;
+  padding: 4px 10px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.invoice-printable-area {
+  padding: 32px 36px;
+  color: #272a24;
+}
+
+.invoice-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 24px;
+}
+
+.invoice-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.invoice-brand h2 {
+  margin: 0;
+  font-size: 24px;
+  color: #243b2e;
+}
+
+.invoice-brand-icon {
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  background: #314b39;
+  border-radius: 8px;
+  font-weight: 700;
+}
+
+.invoice-subtext {
+  margin: 0;
+  font-size: 11px;
+  color: #798074;
+}
+
+.invoice-meta-left p {
+  margin: 2px 0;
+  font-size: 11px;
+  color: #646b60;
+}
+
+.invoice-meta-right {
+  text-align: right;
+}
+
+.invoice-meta-right h3 {
+  margin: 6px 0 4px;
+  color: #243b2e;
+  font-size: 18px;
+  letter-spacing: 1px;
+}
+
+.invoice-meta-right p {
+  margin: 2px 0;
+  font-size: 11.5px;
+  color: #555c51;
+}
+
+.invoice-badge-status {
+  display: inline-block;
+  background: #dcfce7;
+  color: #15803d;
+  font-size: 10.5px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.invoice-divider {
+  height: 1px;
+  background: #e5e8dc;
+  margin: 20px 0;
+}
+
+.invoice-parties {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.invoice-party-col .party-title {
+  display: block;
+  font-size: 9.5px;
+  font-weight: 750;
+  color: #748070;
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+}
+
+.invoice-party-col strong {
+  font-size: 14px;
+  color: #21251e;
+}
+
+.invoice-party-col p {
+  margin: 2px 0;
+  font-size: 11.5px;
+  color: #636b60;
+}
+
+.invoice-table-wrapper {
+  margin-bottom: 20px;
+}
+
+.invoice-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12.5px;
+}
+
+.invoice-table th {
+  background: #f5f6f0;
+  padding: 8px 10px;
+  text-align: left;
+  border-bottom: 1.5px solid #d8dcd0;
+  font-size: 10.5px;
+  color: #556053;
+  text-transform: uppercase;
+}
+
+.invoice-table td {
+  padding: 12px 10px;
+  border-bottom: 1px solid #ebeee4;
+}
+
+.invoice-table .align-right {
+  text-align: right;
+}
+
+.table-item-desc {
+  font-size: 11px;
+  color: #6b7367;
+  margin-top: 2px;
+}
+
+.invoice-summary-box {
+  max-width: 280px;
+  margin-left: auto;
+  margin-bottom: 24px;
+  padding: 12px 16px;
+  background: #fbfbfa;
+  border-radius: 8px;
+  border: 1px solid #ecefe6;
+}
+
+.summary-line {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px;
+  font-size: 12px;
+  color: #535c50;
+}
+
+.summary-line.grand-total {
+  border-top: 1.5px solid #d2d6c7;
+  padding-top: 8px;
+  margin-top: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #1e3526;
+}
+
+.invoice-footer {
+  text-align: center;
+  border-top: 1px dashed #d5d9cc;
+  padding-top: 16px;
+  font-size: 10.5px;
+  color: #798375;
+}
+
+.invoice-tagline {
+  font-weight: 600;
+  color: #3b5040;
+  margin-top: 3px;
+}
+
+/* =========================================================
+   INVOICES TABLE CARD & PROFILE PAGE
+   ========================================================= */
+.invoices-table-card {
+  background: #ffffff;
+  border: 1px solid #e2e5db;
+  border-radius: 10px;
+  overflow-x: auto;
+  margin-top: 18px;
+}
+
+.invoices-list-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12.5px;
+}
+
+.invoices-list-table th {
+  background: #f7f8f3;
+  padding: 11px 14px;
+  text-align: left;
+  border-bottom: 1.5px solid #e1e4da;
+  font-size: 11px;
+  color: #60685c;
+}
+
+.invoices-list-table td {
+  padding: 12px 14px;
+  border-bottom: 1px solid #f0f2eb;
+  vertical-align: middle;
+}
+
+.text-sub {
+  font-size: 11px;
+  color: #798075;
+}
+
+.invoice-status-pill {
+  background: #dcfce7;
+  color: #166534;
+  font-weight: 700;
+  font-size: 10px;
+  padding: 3px 7px;
+  border-radius: 4px;
+}
+
+.invoice-row-view-btn {
+  background: #2e553a;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.member-profile-grid {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.member-card {
+  background: #ffffff;
+  border: 1px solid #e2e5dc;
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.member-avatar {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: #315c40;
+  color: white;
+  display: grid;
+  place-items: center;
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.member-tier-badge {
+  display: inline-block;
+  background: #fef3c7;
+  color: #92400e;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  margin: 10px 0 16px;
+}
+
+.member-meta-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-top: 1px solid #eff1eb;
+  padding-top: 14px;
+  font-size: 12px;
+  color: #61695e;
+}
+
+.member-meta-stats strong {
+  display: block;
+  font-size: 13.5px;
+  color: #212c23;
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  .invoice-modal-card {
+    box-shadow: none !important;
+    border: none !important;
+    max-height: none !important;
+  }
+
+  .invoice-modal-overlay {
+    position: static !important;
+    background: none !important;
+    padding: 0 !important;
   }
 }
