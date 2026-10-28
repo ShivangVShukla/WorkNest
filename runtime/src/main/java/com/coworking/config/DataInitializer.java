@@ -31,10 +31,10 @@ public class DataInitializer implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         // Ensure default users
-        User demoUser = userRepository.findByEmail("alex@worknest.io").orElseGet(() -> {
+        User demoUser = userRepository.findByEmail("alex@gmail.com").orElseGet(() -> {
             User user = new User();
             user.setName("Alex Rivera");
-            user.setEmail("alex@worknest.io");
+            user.setEmail("alex@gmail.com");
             user.setPassword(passwordEncoder.encode("password123"));
             user.setRole(User.Role.MEMBER);
             return userRepository.save(user);

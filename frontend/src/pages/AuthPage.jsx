@@ -114,9 +114,11 @@ function AuthPage({ mode }) {
                         <input
                             id="email"
                             type="email"
-                            placeholder="you@example.com"
+                            placeholder="you@gmail.com"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
+                            pattern="^[^@]+@[Gg][Mm][Aa][Ii][Ll][.][Cc][Oo][Mm]$"
+                            title="Enter a valid gmail.com email address."
                             autoComplete="email"
                             required
                         />
