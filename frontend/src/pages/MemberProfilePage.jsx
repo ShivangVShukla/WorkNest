@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import "../App.css";
 
 const API_URL = "http://localhost:8080/api";
@@ -66,23 +65,6 @@ function MemberProfilePage() {
 
     return (
         <main className="app">
-            <nav className="navbar">
-                <Link className="brand" to="/">
-                    <span className="brand-icon">w.</span>
-                    worknest
-                </Link>
-
-                <div className="nav-links">
-                    <Link to="/my-bookings">My Bookings</Link>
-                    <Link to="/invoices">Invoices</Link>
-                    <Link to="/profile" style={{ color: "#314b39", fontWeight: 700 }}>Member Profile</Link>
-                </div>
-
-                <Link className="nav-cta" to="/">
-                    ← Back to spaces
-                </Link>
-            </nav>
-
             <section className="spaces-section my-bookings-section">
                 <div className="eyebrow">CO-WORKING MEMBER PROFILE</div>
                 <h1>Member Account & Organization.</h1>

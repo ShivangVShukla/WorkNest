@@ -62,6 +62,7 @@ function AuthPage({ mode }) {
                     role: data.role,
                 })
             );
+            window.dispatchEvent(new Event("worknest-auth-change"));
 
             navigate(location.state?.from || "/", { replace: true });
         } catch (err) {
@@ -73,10 +74,6 @@ function AuthPage({ mode }) {
 
     return (
         <main className="auth-page">
-            <Link to="/" className="auth-brand">
-                worknest<span>.</span>
-            </Link>
-
             <section className="auth-card">
                 <div className="auth-eyebrow">
                     {isRegister ? "YOUR SPACE, YOUR WAY" : "WELCOME BACK"}

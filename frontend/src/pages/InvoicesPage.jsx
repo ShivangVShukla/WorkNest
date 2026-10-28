@@ -42,23 +42,6 @@ function InvoicesPage() {
 
     return (
         <main className="app">
-            <nav className="navbar">
-                <Link className="brand" to="/">
-                    <span className="brand-icon">w.</span>
-                    worknest
-                </Link>
-
-                <div className="nav-links">
-                    <Link to="/my-bookings">My Bookings</Link>
-                    <Link to="/invoices" style={{ color: "#314b39", fontWeight: 700 }}>Invoices</Link>
-                    <Link to="/profile">Member Profile</Link>
-                </div>
-
-                <Link className="nav-cta" to="/">
-                    ← Explore spaces
-                </Link>
-            </nav>
-
             <section className="spaces-section my-bookings-section">
                 <div className="eyebrow">BILLING & INVOICING</div>
                 <h1>Tax Invoices & Billing Records.</h1>

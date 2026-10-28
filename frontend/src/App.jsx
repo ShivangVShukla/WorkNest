@@ -7,6 +7,7 @@ import {
   useNavigate,
 } from "react-router-dom";
 
+import AppNavbar from "./components/AppNavbar";
 import AuthPage from "./pages/AuthPage";
 import MyBookings from "./pages/MyBookings";
 import BookingPage from "./pages/BookingPage";
@@ -20,12 +21,7 @@ function HomePage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [spaceType, setSpaceType] = useState("ALL");
-  const [loggedIn, setLoggedIn] = useState(
-    Boolean(localStorage.getItem("token"))
-  );
-
   const navigate = useNavigate();
-
   useEffect(() => {
     fetch(API_URL)
       .then((response) => {
@@ -53,55 +49,8 @@ function HomePage() {
         (space) => space.spaceType?.toUpperCase() === spaceType
       );
 
-  const handleLogout = () => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("user");
-    setLoggedIn(false);
-    navigate("/");
-  };
-
   return (
     <main className="app">
-      <nav className="navbar">
-        <Link className="brand" to="/">
-          <span className="brand-icon">w.</span>
-          worknest
-        </Link>
-
-        <div className="nav-links">
-          <a href="#spaces">Explore spaces</a>
-          <a href="#how-it-works">How it works</a>
-          {loggedIn && (
-            <>
-              <Link to="/my-bookings">My Bookings</Link>
-              <Link to="/invoices">Invoices</Link>
-              <Link to="/profile">Member Profile</Link>
-            </>
-          )}
-        </div>
-
-        <div className="nav-links">
-          {loggedIn ? (
-            <>
-              <button
-                type="button"
-                className="nav-cta"
-                onClick={handleLogout}
-              >
-                Logout
-              </button>
-            </>
-          ) : (
-            <>
-              <Link to="/login">Login</Link>
-              <Link className="nav-cta" to="/register">
-                Get started ↗
-              </Link>
-            </>
-          )}
-        </div>
-      </nav>
-
       <section className="hero">
         <div className="hero-content">
           <div className="eyebrow">
@@ -289,15 +238,18 @@ function HomePage() {
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<HomePage />} />
-      <Route path="/login" element={<AuthPage mode="login" />} />
-      <Route path="/register" element={<AuthPage mode="register" />} />
-      <Route path="/booking" element={<BookingPage />} />
-      <Route path="/my-bookings" element={<MyBookings />} />
-      <Route path="/invoices" element={<InvoicesPage />} />
-      <Route path="/profile" element={<MemberProfilePage />} />
-    </Routes>
+    <>
+      <AppNavbar />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/login" element={<AuthPage mode="login" />} />
+        <Route path="/register" element={<AuthPage mode="register" />} />
+        <Route path="/booking" element={<BookingPage />} />
+        <Route path="/my-bookings" element={<MyBookings />} />
+        <Route path="/invoices" element={<InvoicesPage />} />
+        <Route path="/profile" element={<MemberProfilePage />} />
+      </Routes>
+    </>
   );
 }
 

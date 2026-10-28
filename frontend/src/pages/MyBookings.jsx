@@ -198,23 +198,6 @@ function MyBookings() {
 
     return (
         <main className="app">
-            <nav className="navbar">
-                <Link className="brand" to="/">
-                    <span className="brand-icon">w.</span>
-                    worknest
-                </Link>
-
-                <div className="nav-links">
-                    <Link to="/my-bookings" style={{ color: "#314b39", fontWeight: 700 }}>My Bookings</Link>
-                    <Link to="/invoices">Invoices</Link>
-                    <Link to="/profile">Member Profile</Link>
-                </div>
-
-                <Link className="nav-cta" to="/">
-                    ← Explore spaces
-                </Link>
-            </nav>
-
             <section className="spaces-section my-bookings-section">
                 <div className="eyebrow">MEMBER DASHBOARD</div>
                 <h1>My Bookings & Check-In Tracking.</h1>
@@ -232,7 +215,7 @@ function MyBookings() {
                         </div>
                         <div className="booking-stat">
                             <span>Currently Checked-In</span>
-                            <strong style={{ color: "#2e7d32" }}>
+                            <strong style={{ color: "var(--success)" }}>
                                 {bookings.filter((b) => b.checkInStatus === "CHECKED_IN").length}
                             </strong>
                         </div>
@@ -293,7 +276,7 @@ function MyBookings() {
                                 <div className="my-booking-details">
                                     <div>
                                         <span className="field-label">ASSIGNED SEAT / CABIN</span>
-                                        <strong style={{ color: "#314b39" }}>
+                                        <strong style={{ color: "var(--brand)" }}>
                                             {booking.deskCode ? `${booking.deskCode} (${booking.deskType})` : "General Flex Desk"}
                                         </strong>
                                     </div>

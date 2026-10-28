@@ -322,23 +322,6 @@ function BookingPage() {
 
     return (
         <main className="app">
-            <nav className="navbar">
-                <Link className="brand" to="/">
-                    <span className="brand-icon">w.</span>
-                    worknest
-                </Link>
-
-                <div className="nav-links">
-                    <Link to="/my-bookings">My Bookings</Link>
-                    <Link to="/invoices">Invoices</Link>
-                    <Link to="/profile">Member Profile</Link>
-                </div>
-
-                <Link className="nav-cta" to="/">
-                    ← Back to spaces
-                </Link>
-            </nav>
-
             <section className="booking-page-section">
                 <div className="booking-page-heading">
                     <div className="eyebrow">CO-WORKING & CABIN RESERVATION</div>
@@ -381,7 +364,7 @@ function BookingPage() {
 
                                 <div className="summary-row">
                                     <span>Selected Seat/Cabin:</span>
-                                    <strong style={{ color: "#314b39" }}>
+                                    <strong style={{ color: "var(--brand)" }}>
                                         {selectedDesk ? `${selectedDesk.deskCode} (${selectedDesk.deskType})` : "Any available desk"}
                                     </strong>
                                 </div>
